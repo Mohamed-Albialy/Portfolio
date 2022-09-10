@@ -1,0 +1,93 @@
+@use "./variables" as *;
+@use "./function" as*;
+
+@mixin mini-mobile {
+    @media #{$mini-mobile} {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media #{$mobile} {
+        @content;
+    }
+}
+
+@mixin small {
+    @media #{$small} {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media #{$tablet} {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media #{$medium} {
+        @content;
+    }
+}
+
+@mixin mediumBetween {
+    @media #{$small} and #{$tablet} {
+        @content;
+    }
+}
+
+@mixin large {
+    @media #{$large} {
+        @content;
+    }
+}
+
+@mixin animation($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin widthHeight($value) {
+    width: rem($value);
+    height: rem($value);
+}
+
+@mixin mobile-icon($value) {
+    background-color: $profile-color;
+    border-radius: 50%;
+    @include widthHeight($value);
+    margin-bottom: rem(5);
+}
+
+@mixin exclamation($value, $size) {
+    width: rem($value);
+    height: rem($value);
+    border-radius: 50%;
+    font-size: rem($size);
+}
+
+@mixin company-building($value, $size) {
+    width: rem($value);
+    height: rem($value);
+    border-radius: 50%;
+    font-size: rem($size);
+}
+
+@mixin minus($size) {
+    color: $gray-color;
+    font-size: rem($size);
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    transition: $transition;
+    opacity: 0;
+}
+
+@mixin plus($size) {
+    color: $gray-color;
+    font-size: rem($size);
+    transition: $transition;
+}
+

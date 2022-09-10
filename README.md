@@ -1,2 +1,3 @@
-# Portfolio
-Create portfolio by HTML, CSS, Bootstrap, Sass and JavaScript.
+# portfolio
+
+Designed portfolio by HTML, CSS, Sass, Bootstrap and JavaScript.

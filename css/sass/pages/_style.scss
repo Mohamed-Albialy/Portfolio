@@ -1,0 +1,784 @@
+@use "../helpers/function" as *;
+@use "../helpers/variables" as *;
+@use "../helpers/mixin" as *;
+@use "../pages/global" as *;
+@use "../components/icon" as *;
+
+
+    #block {
+        margin-top: rem(100);
+        margin-bottom: rem(100);
+        @media (max-width: 768px) {
+            margin-top: rem(50);         
+            margin-bottom: rem(50);         
+        }
+        #header {
+            width: 100%;
+            height: rem(186);
+            @include mediumBetween {
+                height: rem(116);
+            }
+            @include mobile {
+                height: rem(344);
+            }
+            .container {
+                height: 100%;
+                position: relative;
+                .content {
+                    @extend %content-header-main;
+                    width: calc(100% - 24px);
+                    height: 100%;
+                    grid-template-rows: repeat(1, 1fr);
+                    position: absolute;
+                    @include mobile {
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-template-rows: repeat(2, 1fr);
+                    }
+                    li {
+                        cursor: pointer;
+                    }
+                    .image {
+                        .introduction-image {
+                            height: 100%;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                        @include mobile {
+                            grid-column: 1/2;
+                            grid-row: 1/1
+                        }
+                        grid-column: 1/2;
+                        grid-row: 1/1
+                    }
+                    .introduction {
+                        height: 100%;
+                        background-color: $name-color;
+                        div {
+                            h1 {
+                                font-size: rem(40);
+                                @include mediumBetween {
+                                    font-size: rem(30);
+                                }
+                            }
+                            p {
+                                font-size: rem(16);
+                                @include mediumBetween {
+                                    font-size: rem(14);
+                                }
+                            }
+                        }
+                        @include mobile {
+                            grid-column: 2/span 2;
+                            grid-row: 1/1
+                        }
+                        grid-column: 2/4;
+                        grid-row: 1/1
+                    }
+                    .profile, .portfolio, .contact {
+                        div {
+                            transition: $transition;
+                            &:hover, &.clicked {
+                                background-color: $white;
+                            }
+                            &:hover i, &.clicked i {
+                                color: $transition-color;
+                            }
+                            i {
+                                transition: $transition;
+                                font-size: rem(60);
+                                @include mediumBetween {
+                                    font-size: rem(45);
+                                }
+                            }
+                        }
+                    }
+                    .profile {
+                        div {
+                            background-color: $profile-color;
+                        }
+                        @include mobile {
+                            grid-column: 1/2;
+                            grid-row: 2/2
+                        }
+                        grid-column: 4/5;
+                        grid-row: 1/1
+                    }
+                    .portfolio {
+                        div {
+                            background-color: $portfolio-color;
+                        }
+                        @include mobile {
+                            grid-column: 2/3;
+                            grid-row: 2/2
+                        }
+                        grid-column: 5/6;
+                        grid-row: 1/1
+                    }
+                    .contact {
+                        div {
+                            background-color: $contact-color;
+                        }
+                        @include mobile {
+                            grid-column: 3/3;
+                            grid-row: 2/2
+                        }
+                        grid-column: 6/6;
+                        grid-row: 1/1
+                    }
+                }
+            }
+        }
+        #main {
+            position: relative;
+            z-index: 1;
+            .container {
+                .content {
+                    @extend %content-header-main;
+                    width: 100%;
+                    grid-template-rows: repeat(2, 1fr);
+                    position: relative;
+                    @include mobile {
+                        grid-template-columns: repeat(4, 1fr);
+                        grid-template-rows: repeat(11, 1fr);
+                    }
+                    li {
+                        transition: $transition;
+                        &:hover {
+                            background-color: $white;
+                        }
+                        &:hover i {
+                            color: $transition-color;
+                        }
+                        a {
+                            i {
+                                transition: $transition;
+                                font-size: rem(50);
+                                @include mediumBetween {
+                                    font-size: rem(35);
+                                }
+                            }
+                        }
+                    }
+                    .brief {
+                        background-color: $white;
+                        padding-top: rem(10) !important;
+                        padding-bottom: rem(10) !important;
+                        .description {
+                            color: $paragraph-color;
+                            text-align: center;
+                            font-size: rem(24);
+                            margin-bottom: 40px;
+                            @include mediumBetween {
+                                font-size: rem(16);
+                                margin-bottom: 25px;
+                            }
+                        }
+                        @include mobile {
+                            grid-column: 1/span 4;
+                            grid-row: 1/ span 5
+                        }
+                        grid-column: 1/ span 4;
+                        grid-row: 1/ span 2
+                    }
+                    .facebook {
+                        background-color: $face-color;
+                        @include mobile {
+                            grid-column: 1/span 2;
+                            grid-row: 6/ span 3
+                        }
+                    }
+                    .twitter {
+                        background-color: $twitter-color;
+                        @include mobile {
+                            grid-column: 3/span 2;
+                            grid-row: 6/ span 3
+                        }
+                    }
+                    .dribble {
+                        background-color: $dribble-color;
+                        @include mobile {
+                            grid-column: 1/span 2;
+                            grid-row: 9/ span 3
+                        }
+                    }
+                    .instagram {
+                        background-color: $instagrame-color;
+                        @include mobile {
+                            grid-column: 3/span 2;
+                            grid-row: 9/ span 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mobile-icon {
+        @include mobile-icon(50);
+        @include mediumBetween {
+            @include widthHeight(40);
+        }
+        i {
+            font-size: rem(35);
+            @include mediumBetween {
+                font-size: rem(26);
+            }
+        }
+    }
+    .phone-number {
+        color: $profile-color;
+        font: {
+            size: 35px; 
+            weight: normal;
+        }
+        @include mediumBetween {
+            font-size: 25px;
+        }
+    }
+    .mail, .website {
+        color: $profile-color;
+        font-size: rem(16);
+        @include mediumBetween {
+            font-size: rem(12); 
+        }
+    }
+    #profile {
+            position: relative;
+            z-index: 2;
+            animation-name: downToDisappearSmall;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            @include small {
+                animation-name: downToDisappearMedium;
+            }
+            @include medium {
+                animation-name: downToDisappearLarge;
+            }
+            @include mini-mobile {
+                animation-name: downToDisappearMiniMobile;
+            }
+        &.show {
+            animation-name: upToHeaderSmall;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            @include small {
+                animation-name: upToHeaderMedium;
+            }
+            @include medium {
+                animation-name: upToHeaderLarge;
+            }
+            @include mini-mobile {
+                animation-name: upToHeaderMiniMobile;
+            }
+        }
+        .container {
+            .employment {
+                background-color: $white;
+                &.border {
+                    border-bottom: 1px solid $paragraph-color;
+                }
+            }
+            .header {
+                cursor: pointer;
+                position: relative;
+                .header-name {
+                    flex: 1;
+                    color: $paragraph-color;
+                    @include mini-mobile {
+                        font-size: rem(20)
+                    }
+                }
+                .minus-plus-icon {
+                    @include widthHeight(50);
+                    border-radius: 50%;
+                    transition: $transition;
+                }
+                &:hover .minus-plus-icon {
+                    background-color: $transition-color;
+                }
+                .minus {
+                    @include minus(30);
+                    &.show {
+                        opacity: 1;
+                        transform: translateY(-28px);
+                    }
+                }
+                .plus {
+                    @include plus(30);
+                    &.show {
+                        opacity: 0;
+                        transform: translateY(-38px);
+                    }
+                }
+            }
+            .my-job {
+                position: relative;
+                .date {
+                    height: 100%;
+                        &:before {
+                            content: "";
+                            width: rem(2);
+                            height: 100%;
+                            position: absolute;
+                            background-color: $transition-color;
+                            top: 0;
+                            left: rem(130);
+                        }
+                }
+            }
+            .my-job.two {
+                background-color: $gray-color;
+                position: relative;
+                .date {
+                    height: 100%;
+                        &:before {
+                            content: "";
+                            width: rem(2);
+                            height: 100%;
+                            position: absolute;
+                            background-color: $transition-color;
+                            top: 0;
+                            left: rem(130);
+                        }
+                }
+            }
+            .exclamation {
+                background-color: $profile-color;
+                transform: rotate(180deg);
+                @include exclamation(50, 35);
+                @include mini-mobile {
+                    @include exclamation(40, 30);
+                }
+            }
+            .exclamation.mini {
+                background-color: $profile-color;
+                transform: rotate(180deg);
+                @include exclamation(40, 30);
+                @include mini-mobile {
+                    @include exclamation(30, 20);
+                }
+            }
+            .company-building.employment {
+                background-color: $profile-color;
+                @include company-building(40, 25);
+                @include mini-mobile {
+                    @include company-building(30, 18);
+                }
+            }
+            .company-name, .position-name {
+                color: $header-color;
+                @include mediumBetween {
+                    font-size: rem(14);
+                    padding-left: 10px !important;
+                }
+                @include mobile {
+                    font-size: rem(14);
+                    padding-left: 10px !important;
+                }
+                @include mini-mobile {
+                    font-size: rem(12);
+                    padding-left: 10px !important;
+                }
+            }
+            .detail-job-description {
+                color: $paragraph-color;
+                @include mini-mobile {
+                    font-size: rem(12);
+                }
+            }
+            .education {
+                background-color: $white;
+                &.border {
+                    border-bottom: 1px solid $paragraph-color;
+                }
+            }
+            .graduation {
+                background-color: $portfolio-color;
+                @include exclamation(50, 30);
+                @include mini-mobile {
+                    @include exclamation(40, 25);
+                }
+            }
+            .education.mini {
+                background-color: $portfolio-color;
+                transform: rotate(180deg);
+                @include exclamation(40, 30);
+                @include mini-mobile {
+                    @include exclamation(30, 20);
+                }
+            }
+            .company-building.education {
+                background-color: $portfolio-color;
+                @include company-building(40, 25);
+                @include mini-mobile {
+                    @include company-building(30, 18);
+                }
+            }
+            .skills {
+                background-color: $white;
+                &.border {
+                    border-bottom: 1px solid $paragraph-color;
+                }
+            }
+            .bolt {
+                background-color: $skills-color;
+                @include exclamation(50, 30);
+                @include mini-mobile {
+                    @include exclamation(40, 25);
+                }
+            }
+            .progres {
+                span {
+                    height: 30px;
+                    background-color: $skills-color;
+                    margin-bottom: 7px;
+                    color: $white;
+                    display: block;
+                    transition: 1s;
+                }
+            }
+            .buttons {
+                .download, .print {
+                    font-weight: 700;
+                    transition: $transition;
+                }
+                .download, .print {
+                    background-color: $profile-color;
+                    &:hover {
+                        background-color: $skills-color;
+                    }
+                }
+                .print {
+                    background-color: $portfolio-color;
+                    &:hover {
+                        background-color: $contact-color;
+                    }
+                }
+                
+            }
+        }
+    }
+    #portfolio {
+        position: relative;
+        z-index: 3;
+        animation-name: downToDisappearSmall;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        @include small {
+            animation-name: downToDisappearMedium;
+        }
+        @include medium {
+            animation-name: downToDisappearLarge;
+        }
+        @include mini-mobile {
+            animation-name: downToDisappearMiniMobile;
+        }
+        // display: none;
+    &.show {
+        animation-name: upToHeaderSmall;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        @include small {
+            animation-name: upToHeaderMedium;
+        }
+        @include medium {
+            animation-name: upToHeaderLarge;
+        }
+        @include mini-mobile {
+            animation-name: upToHeaderMiniMobile;
+        }
+    }
+        .container {
+        }
+        .types {
+            background-color: $white;
+            .links {
+                font-size: 14px;
+                color: $header-color;
+                transition: $transition;
+                border-radius: 4px;
+                cursor: pointer;
+                &:hover {
+                    color: $profile-color
+                }
+                &.clicked {
+                    background-color: $name-color;
+                    color: $white;
+                }
+            }
+
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            transition: $transition;
+            background-color: $white;
+            padding: 0 10px 10px;
+            .project, .more-results {
+                width: 100%;
+                cursor: pointer;
+                overflow: hidden;
+                margin: 0 auto;
+                &.one, &.two, &.three, &.four, &.five, &.six, &.seven, &.eight, &.nine {
+                    position: relative;
+                }
+                &.more-results {
+                    display: none;
+                }
+                &.more-results.show {
+                    display: block !important;
+                }
+                img {
+                    width: 100%;
+                    transition: $transition;
+                }
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background: rgb(10 23 62 / 80%);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    transition: $transition;
+                }
+                &:hover .description {
+                    top: 10%;
+                }
+                &:hover::before {
+                    opacity: 1;
+                }
+                &:hover .search {
+                    font-size: 25px;
+                    transform: rotate(0deg);
+                }
+            }
+            .search {
+                transform: translate(-50%, -50%) rotate(-90deg);
+                transition: $transition;
+                font-size: 0;
+            }
+            .description {
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                top: -25%;
+                transition: $transition;
+                transition-delay: $transition;
+                h5 {
+                    color: $white;
+                }
+                p {
+                    color: $portfolio-color;
+                }
+            }
+        }
+
+        .more-result {
+            background-color: #fff;
+            div {
+                display: block;
+                margin: 0 auto;
+                width: fit-content;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: $transition;
+                &.clicked {
+                    background-color: $transition-color !important;
+                }
+            }
+        }
+
+    }
+    #contact {
+        position: relative;
+        z-index: 4;
+        animation-name: downToDisappearSmall;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        @include small {
+            animation-name: downToDisappearMedium;
+        }
+        @include medium {
+            animation-name: downToDisappearLarge;
+        }
+        @include mini-mobile {
+            animation-name: downToDisappearMiniMobile;
+        }
+        &.show {
+            animation-name: upToHeaderSmall;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            @include small {
+                animation-name: upToHeaderMedium;
+            }
+            @include medium {
+                animation-name: upToHeaderLarge;
+            }
+            @include mini-mobile {
+                animation-name: upToHeaderMiniMobile;
+            }
+        }
+        .content {
+            @include mobile {
+                flex-direction: column !important;
+            }
+            label {
+                font-weight: 800;
+            }
+            input, textarea{
+                display: block;
+                width: 100%;
+                padding: 10px 10px 10px 15px;
+                border: 2px solid #eee;
+                margin-bottom: 10px;
+            }
+            textarea {
+                height: 200px;
+            }
+            .right {
+                h4 {
+                    color: $name-color;
+                }
+            }
+            .submit {
+                span {
+                    font-size: 14px;
+                    color: $paragraph-color;
+                    
+                }
+                input {
+                    width: fit-content;
+                    font-size: 20px;
+                    background-color: $portfolio-color;
+                    border-radius: 5px;
+                    border: none;
+                }
+            }
+
+        }
+    }
+    footer {
+        .container {
+            p {
+                font-size: rem(12);
+                margin-top: 10px;
+                color: $profile-color;
+            }
+        }
+    }
+
+    @include animation(downToDisappearLarge) {
+        0% {
+            opacity: 1;
+            transform: translateY(-416px);
+        }
+        99% {
+            opacity: 0;
+            transform: translateY(0px);
+        } 
+        100% {
+            height: 0;
+            overflow: hidden;
+        }           
+    }
+    @include animation(downToDisappearMedium) {
+        0% {
+            opacity: 1;
+            transform: translateY(-340px);
+        }
+        99% {
+            opacity: 0;
+            transform: translateY(0px);
+        } 
+        100% {
+            height: 0;
+            overflow: hidden;
+        }           
+    }
+    @include animation(downToDisappearSmall) {
+        0% {
+            opacity: 1;
+            transform: translateY(-790px);
+        }
+        99% {
+            opacity: 0;
+            transform: translateY(0px);
+        } 
+        100% {
+            height: 0;
+            overflow: hidden;
+        }           
+    }
+    @include animation(downToDisappearMiniMobile) {
+        0% {
+            opacity: 1;
+            transform: translateY(-870px);
+        }
+        99% {
+            opacity: 0;
+            transform: translateY(0px);
+        } 
+        100% {
+            height: 0;
+            overflow: hidden;
+        }           
+    }
+    @include animation(upToHeaderLarge) {
+        0% {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        100% {
+            display: block;
+            height: 100%;
+            opacity: 1;
+            transform: translateY(-416px);
+        }
+            
+    }
+    @include animation(upToHeaderMedium) {
+        0% {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        100% {
+            height: 100%;
+            opacity: 1;
+            transform: translateY(-340px);
+        }
+            
+    }
+    @include animation(upToHeaderSmall) {
+        0% {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        100% {
+            height: 100%;
+            opacity: 1;
+            transform: translateY(-790px);
+        }
+            
+    }
+    @include animation(upToHeaderMiniMobile) {
+        0% {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        100% {
+            height: 100%;
+            opacity: 1;
+            transform: translateY(-870px);
+        }
+            
+    }
+
+   

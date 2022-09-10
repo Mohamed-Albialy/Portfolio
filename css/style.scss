@@ -1,0 +1,8 @@
+@use "./sass/pages/global" as *;
+@use "./sass/helpers/function" as *;
+@use "./sass/helpers/variables" as *;
+@use "./sass/helpers/mixin" as *;
+
+@use "./sass/layout/header";
+@use "./sass/pages/style";
+@use "./sass/layout/footer";

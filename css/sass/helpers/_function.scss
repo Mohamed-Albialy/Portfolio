@@ -1,0 +1,27 @@
+// @function rem($value) {
+//     $remValue: $value;
+//     @if (type-of($value) == number) {
+//         $remValue: ($value / 16) + rem;
+//     }
+//     @return $remValue;
+// }
+
+@function rem($value) {  
+    $remValue: $value;
+    @if (type-of($remValue) == number) {
+        $remValue : $remValue/ 16 + rem; 
+    }
+    @return $remValue; 
+}
+
+%size-icons {
+    width: rem(150);
+    height: rem(150);
+}
+
+%content-header-main {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    left: 50%;
+    transform: translateX(-50%);
+}
